@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            margin-top:300px;
+        }
+    </style>
+    <script>
+       function calculate_age() 
+       {
+            var date = parseInt(document.getElementById("date").value);
+            var month = parseInt(document.getElementById("month").value) - 1;
+            var year = parseInt(document.getElementById("year").value);
+
+            var c_date = new Date();
+            var curr_date = c_date.getDate();
+            var curr_month = c_date.getMonth(); // zero-based
+            var curr_year = c_date.getFullYear();
+
+            var array = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            // Leap year check
+            if (curr_year % 4 === 0) 
+            {
+                array[1] = 29;
+            }
+
+            if (date > curr_date) {
+                curr_date += array[(curr_month - 1 + 12) % 12];
+                curr_month -= 1;
+            }
+
+            if (month > curr_month) {
+                curr_month += 12;
+                curr_year -= 1;
+            }
+
+            var days = curr_date - date;
+            var output_month = curr_month - month;
+            var output_year = curr_year - year;
+
+            document.getElementById("output").value = "Your age is " + output_year + " years " + output_month + " months " + days + " days.";
+        }
+
+        {
+            var date = document.getElementById("date").value;
+            var month = document.getElementById("month").value;
+            var year = document.getElementById("year").value;
+
+            var c_date = new Date();
+            var curr_date = c_date.getDate();
+            var curr_month = c_date.getMonth()+1;
+            var curr_year = c_date.getFullYear();
+
+            var array = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+            if(curr_year%4 == 0)
+            {
+                array[1]= 29;
+            }
+
+            if(date > curr_date)
+            {
+                curr_date += array[(curr_month-2+12)%12];
+                curr_month -= 1;
+            }
+            if(month > curr_month)
+            {
+                curr_month += 12;
+                curr_year -=1;
+            }
+
+            var days = curr_date - date;
+            var output_month = curr_month - month;
+            var output_year = curr_year - year;
+
+            document.getElementById("output").innerText = "your age is "+output_year+"months "+output_month+"days"+days;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <div class="container">
+            <div class="heading">
+                <h1>Age Calculator</h1>
+            </div>
+            <div class="main">
+                <div class="date">
+                    <label for="date">Date</label><br>
+                    <input type="number" id="date">
+                </div>
+                <div>
+                    <label for="month">Month</label><br>
+                    <input type="number" id="month">
+                </div>
+                <div>
+                    <label for="year">year</label><br>
+                    <input type="number" id="year">
+                </div>
+                <div>
+                    <input type="button" value="Enter" id="sub" onclick="calculate_age()">
+                </div>
+                <div>
+                    <input type="text" id="output">
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+</html>
