@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $("#oper").change(function()
+            {
+                var OPER = $("#oper").val();
+                if(OPER=="10")
+                {
+                    $("#ten_box").fadeIn();
+                    $("#ten_box").css("display","block");
+                    $("#box_12").css("display","none");
+                    $("#box_11").css("display","none");
+                }
+                else if(OPER=="11")
+                {
+                    $("#box_11").fadeIn();
+                    $("#box_11").css("display","block");
+                    $("#ten_box").css("display","none");
+                    $("#box_12").css("display","none");
+                }
+                else if(OPER =="12")
+                {
+                    $("#box_12").fadeIn();
+                    $("#box_12").css("display","block");
+                    $("#ten_box").css("display","none");
+                    $("#box_11").css("display","none");
+                }
+                else
+                {
+                    
+                    $("#ten_box").css("display","none");
+                    $("#box_11").css("display","none");
+                    $("box_12").css("display","none");
+                }
+            });
+        });
+    </script>
+    <style>
+        #ten_box
+        {
+            display: none;
+        }
+        #box_11
+        {
+            display: none;
+        }
+        #box_12
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    Class :- 
+    <select name="" id="oper">
+        <option value="">Select Class</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select><br><br>
+    
+    <div id="ten_box">
+        Status :- <input type="radio" name="ten" value="private">private
+                  <input type="radio" name="ten" value="regular">regular
+    </div>
+    <div id="box_11">
+        subject :-<input type="radio" name="sub" value="maths">maths
+                  <input type="radio" name="sub" value="commerce">commerce
+                  <input type="radio" name="sub" value="biology">biology
+                  <input type="radio" name="sub" value="aats">aats
+    </div>
+    <div id="box_12">
+        status:- <input type="radio" name="tennn" value="private">private
+                 <input type="radio" name="tennn" value="regular">regular <br>
+        subject:-<input type="radio" name="subje" value="maths">maths
+                  <input type="radio" name="subje" value="commerce">commerce
+                  <input type="radio" name="subje" value="biology">biology
+                  <input type="radio" name="subje" value="aats">aats       
+    </div>
+
+</body>
+</html>
